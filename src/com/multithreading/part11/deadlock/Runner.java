@@ -49,7 +49,6 @@ public class Runner {
 
     private void acquireLock(Lock firstLock, Lock secondLock) throws InterruptedException {
 
-
         while(true) {
 
             boolean gotFirstLock = false;

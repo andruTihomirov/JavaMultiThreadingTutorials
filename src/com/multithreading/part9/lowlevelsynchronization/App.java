@@ -9,23 +9,19 @@ public class App {
 
         final Processor processor = new Processor();
 
-        Thread thread1 = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    processor.produce();
-                } catch(InterruptedException e) {
-                    e.printStackTrace();
-                }
+        Thread thread1 = new Thread(() -> {
+            try {
+                processor.produce();
+            } catch(InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
-        Thread thread2 = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    processor.consume();
-                } catch(InterruptedException e) {
-                    e.printStackTrace();
-                }
+        Thread thread2 = new Thread(() -> {
+            try {
+                processor.consume();
+            } catch(InterruptedException e) {
+                e.printStackTrace();
             }
         });
 

@@ -8,7 +8,7 @@ import java.util.Random;
  */
 public class Processor {
 
-    private LinkedList<Integer> list = new LinkedList<Integer>();
+    private LinkedList<Integer> list = new LinkedList<>();
     private final int LIMIT = 10;
     private Object lock = new Object();
 
@@ -20,7 +20,7 @@ public class Processor {
                     lock.wait();
                 }
                 list.add(value++);
-                lock.notify();
+               lock.notify();
             }
         }
     }

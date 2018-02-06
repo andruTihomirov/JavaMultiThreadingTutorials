@@ -12,23 +12,19 @@ public class App {
     private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
 
     public static void main(String[] args) {
-        Thread thread1 = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    producer();
-                } catch(InterruptedException e) {
-                    e.printStackTrace();
-                }
+        Thread thread1 = new Thread(() -> {
+            try {
+                producer();
+            } catch(InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
-        Thread thread2 = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    consumer();
-                } catch(InterruptedException e) {
-                    e.printStackTrace();
-                }
+        Thread thread2 = new Thread(() -> {
+            try {
+                consumer();
+            } catch(InterruptedException e) {
+                e.printStackTrace();
             }
         });
 

@@ -23,5 +23,6 @@ public class Processor implements Runnable {
         }
 
         latch.countDown();
+        System.out.println("Ended.");
     }
 }
